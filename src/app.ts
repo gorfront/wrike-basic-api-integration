@@ -15,7 +15,6 @@ const mapTask = (task: any) => ({
 const saveTasksToFile = (tasks: any[]) => {
   const filePath = "./tasks.json";
   fs.writeFileSync(filePath, JSON.stringify(tasks, null, 2));
-  console.log(`Tasks saved to ${filePath}`);
 };
 
 const main = async () => {
@@ -24,7 +23,7 @@ const main = async () => {
     const mappedTasks = tasks.map(mapTask);
     saveTasksToFile(mappedTasks);
   } catch (error) {
-    console.error("Error in main:", error);
+    throw new Error(`Error in main: ${error}`);
   }
 };
 

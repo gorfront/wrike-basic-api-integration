@@ -13,7 +13,6 @@ export const getAllTasks = async () => {
     });
     return response.data.data;
   } catch (error) {
-    console.error("Error fetching tasks:", error);
-    throw error;
+    throw new Error(`Error fetching tasks: ${error}`);
   }
 };
